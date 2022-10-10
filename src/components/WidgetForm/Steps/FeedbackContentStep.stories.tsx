@@ -1,5 +1,6 @@
 import { Popover } from '@headlessui/react';
 import { Meta, StoryObj } from '@storybook/react';
+import { rest } from 'msw';
 import { feedbackTypes } from '..';
 import { FeedbackContentStep, FeedbackContentStepProps } from "./FeedbackContentStep";
 
@@ -8,6 +9,18 @@ export default {
     component: FeedbackContentStep,
     args: {
         feedbackType: 'BUG',
+    },
+    parameters: {
+        msw: {
+            handlers: [
+                rest.post('/feedbacks', (req, res, ctx) => {
+                    // return res(ctx.json({
+                    //     message: 'Hello world'
+                    // }))
+                    return res();
+                })
+            ]
+        }
     },
     argTypes: {
         feedbackType: {

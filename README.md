@@ -15,3 +15,10 @@ npm run storybook
 ```
 npx sb init --builder @storybook/builder-vite --use-npm
 ```
+
+- Mock Service Work:
+
+```
+npm i msw msw-storybook-addon -D
+npx msw init public/
+```
