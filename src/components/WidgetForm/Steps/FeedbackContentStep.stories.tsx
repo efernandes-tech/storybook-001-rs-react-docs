@@ -1,5 +1,6 @@
 import { Popover } from '@headlessui/react';
 import { Meta, StoryObj } from '@storybook/react';
+import { feedbackTypes } from '..';
 import { FeedbackContentStep, FeedbackContentStepProps } from "./FeedbackContentStep";
 
 export default {
@@ -7,6 +8,14 @@ export default {
     component: FeedbackContentStep,
     args: {
         feedbackType: 'BUG',
+    },
+    argTypes: {
+        feedbackType: {
+            options: Object.keys(feedbackTypes),
+            control: {
+                type: 'inline-radio'
+            }
+        }
     },
     decorators:[
         (Story) => {
